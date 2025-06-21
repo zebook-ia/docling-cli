@@ -1,0 +1,67 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "docling-cli"
+version = "0.1.0"
+description = "Uma ferramenta CLI para converter formatos de documentos."
+authors = ["Seu Nome <voce@example.com>"]
+readme = "README.md"
+packages = [{include = "doc_converter", from = "src"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+typer = {extras = ["all"], version = "^0.12.3"}
+pypandoc-binary = "^1.13"
+rich = "^13.7.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.0"
+ruff = "^0.4.4"
+
+[tool.poetry.scripts]
+doc-converter = "doc_converter.cli:app"
+
+[project]
+name = "docling-cli"
+version = "0.1.0"
+description = "Uma ferramenta CLI para converter formatos de documentos."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name = "Seu Nome", email = "voce@example.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "typer[all]>=0.12.3",
+    "pypandoc-binary>=1.13",
+    "rich>=13.7.1",
+]
+
+[project.scripts]
+doc-converter = "doc_converter.cli:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "ruff>=0.4.4",
+]
